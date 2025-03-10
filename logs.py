@@ -1,21 +1,19 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 import logging
 from logging.handlers import RotatingFileHandler
 
+# Set up the logging configuration
 logging.basicConfig(
-    level=logging.ERROR,
-    format=
-    "%(asctime)s - %(levelname)s - %(message)s [%(filename)s:%(lineno)d]",
+    level=logging.INFO,  # Change this to DEBUG for more detailed logs during development
+    format="%(asctime)s - %(levelname)s - %(message)s [%(filename)s:%(lineno)d]",
     datefmt="%d-%b-%y %H:%M:%S",
     handlers=[
         RotatingFileHandler("logs.txt", maxBytes=50000000, backupCount=10),
         logging.StreamHandler(),
     ],
 )
+
+# Set pyrogram logger to show warnings and errors only
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-
-logging = logging.getLogger()
+# Optionally, you can log something here to check the configuration is working
+logging.info("Logging is set up successfully.")
